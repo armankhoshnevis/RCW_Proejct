@@ -1,0 +1,23 @@
+Function Cost_Function(problem, params)
+    This function calculates a multi-objective cost value (cost) by comparing the
+    experimental data with model predictions in a logarithm scale.
+
+    Inputs:
+        - problem: a structure providing experimental data, model data, and 
+        weights
+        - params: an array of model parameters
+
+    Process:
+        1. Update the model predictions in 'problem' by calling 
+        'Constitutive_Model' with given 'params'.
+        2. Calculate the squared error (f1) between the log-transformed 
+        experimental and model data for the storage module.
+        3. Calculate the squared error (f2) between the log-transformed 
+        experimental and model data for the loss module.
+        4. Combine f1 and f2 using the weights specified in 'problem' to 
+        calculate the final cost value (cost).
+
+    Output:
+        - cost: the weighted objective value representing the fit of the model to
+        the experimental data.
+End Function

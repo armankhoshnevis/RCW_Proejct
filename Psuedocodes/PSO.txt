@@ -1,0 +1,47 @@
+Function PSO(problem, params, run_number)
+    This function performs Particle Swarm Optimization (PSO) to find an optimal solution for a given problem.
+    
+    Inputs:
+        - problem: structure containing problem-specific data (variable bounds, weights, etc.)
+        - params: PSO parameters (iterations, swarm size, inertia, acceleration coefficients, etc.)
+        - run_number: identifier for the current PSO run
+
+    Process:
+        1. Define the optimization problem:
+            - Set number of decision variables, variable bounds, and decision variable matrix size.
+
+        2. Initialize PSO parameters:
+            - Define maximum iterations, swarm size, inertia coefficient, personal/social acceleration coefficients, etc.
+            - Set velocity limits based on variable bounds.
+
+        3. Initialize swarm:
+            - Create an empty template for particles with properties: position, velocity, cost, and personal best.
+            - Create an array of particles for the swarm and initialize global best with a high cost (infinity).
+            - For each particle:
+                a. Randomly assign an initial position within variable bounds.
+                b. Set initial velocity to zero.
+                c. Evaluate the cost of the particle's position using the Cost_Function.
+                d. Set the particle's personal best to its initial position and cost.
+                e. Update global best if the particle's personal best cost is lower than the global best cost.
+
+        4. Main optimization loop:
+            - For each iteration:
+                a. Adjust the inertia weight based on the iteration.
+                b. For each particle in the swarm:
+                    i. Update velocity based on inertia, personal best, and global best.
+                    ii. Limit velocity within bounds.
+                    iii. Update position based on velocity and enforce variable bounds.
+                    iv. Evaluate the cost of the new position.
+                    v. If the new cost is better than the particle's personal best:
+                        - Update personal best to the new position and cost.
+                        - If the personal best cost is better than global best cost, update global best.
+                c. Record the global best cost for the current iteration.
+                
+                d. Optionally, log the iteration’s results (cost, LSE, MSE, and global best position) if logging is enabled.
+
+        5. Return output:
+            - Store the final particle positions, the best solution (global best), the best cost per iteration, and the logged data for output.
+
+    Output:
+        - out: structure containing population, best solution, best costs, and output data matrix.
+End Function

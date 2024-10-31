@@ -1,0 +1,19 @@
+Function Constitutive_Model(problem, params)
+    This function calculates the storage and loss modules of a constitutive model
+    for different branch configurations (FMG-FMG, FMM-FMG, FMG-FMM, FMM-FMM).
+    
+    Inputs:
+        - problem: a structure containing frequency data
+        - params: an array of model parameters
+
+    Process:
+        1. Extract parameters for both branches from 'params'.
+        2. Precompute mathematical terms (e.g., cosine, sine) for efficiency.
+        3. For each frequency in the problem data:
+           a. Calculate the storage module (E') based on the parameters.
+           b. Calculate the loss module (E'') based on the parameters.
+        4. Store the computed storage and loss modules back into 'problem'.
+
+    Output:
+        - problem: updated with calculated storage and loss modules.
+End Function
