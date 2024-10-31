@@ -1,0 +1,38 @@
+1. Import Required Libraries and Set Up Analysis Environment:
+    - Import libraries for numerical operations, data handling, and plotting.
+    - Import functions from SALib for Sobol sampling and sensitivity analysis.
+
+2. Define Functions for Storage and Loss Moduli (Ep and Epp):
+    - Implement `Ep_func` and `Epp_func` to calculate the storage and loss moduli, respectively, given frequency and model parameters.
+
+3. Load Experimental Data and Set Model Parameters:
+    - Load mean parameter values from an Excel file.
+    - Define the frequency range for analysis.
+    - Select a specific dataset index based on the GnP percentage.
+    - Calculate parameter ranges (lower and upper limits) based on standard deviations.
+
+4. Evaluate Storage and Loss Moduli Over the Frequency Range:
+    - Calculate storage (Ep_model) and loss (Epp_model) moduli across frequencies using the defined functions and mean values.
+    - Compute the complex modulus (Ecomplex_model) from Ep and Epp.
+
+5. Define the Sensitivity Analysis Problem:
+    - Specify model parameter bounds and names for Sobol sensitivity analysis.
+
+6. Perform Sobol Sensitivity Analysis for Multiple Realization Counts:
+    - For each predefined number of realizations:
+        a. Generate samples of model parameters using Sobol sampling.
+        b. Modify samples to respect parameter constraints.
+        c. Evaluate the complex modulus at each frequency for each sample set.
+        d. Perform Sobol sensitivity analysis for each frequency and compute Sobol indices for the complex modulus.
+        e. Extract first-order and total-order sensitivity indices and their confidence intervals.
+
+7. Save Sensitivity Analysis Results to Excel:
+    - Save the calculated first-order and total-order Sobol indices and confidence intervals for each frequency and realization count in separate Excel files.
+
+8. Visualize Sensitivity Analysis Results (for S1 and ST of E*):
+    - Load saved Sobol indices from Excel files.
+    - Set up subplots to visualize the first-order (S1) and total-order (ST) indices for the complex modulus across frequencies and parameter variations.
+    - Configure subplot layouts and labels, customizing axes and ticks for log-scaled frequency.
+
+9. Display Visualizations:
+    - Arrange and display the subplots with appropriate labels, legends, and confidence intervals to represent the sensitivity of model parameters on the complex modulus across the frequency range.

@@ -1,0 +1,37 @@
+1. Import Required Libraries and Set Up Analysis Environment:
+    - Import libraries for numerical computations, data handling, and plotting.
+    - Import functions from the SALib library to perform Sobol sampling and analysis.
+
+2. Define Functions for Storage and Loss Moduli (Ep and Epp):
+    - Implement `Ep_func` and `Epp_func` to calculate the storage and loss moduli, respectively, given frequency and model parameters.
+
+3. Load Experimental Data and Set Model Parameters:
+    - Load mean parameter values from an Excel file.
+    - Set the frequency range for analysis.
+    - Select a specific dataset index based on the GnP percentage.
+    - Define parameter ranges (lower and upper limits) based on standard deviations.
+
+4. Evaluate Storage and Loss Moduli Over the Frequency Range:
+    - Calculate storage and loss moduli (Ep_model and Epp_model) across frequencies using the defined functions and mean values.
+
+5. Define the Sensitivity Analysis Problem:
+    - Set up the model parameter bounds and names for the Sobol sensitivity analysis.
+
+6. Perform Sobol Sensitivity Analysis for Multiple Realization Counts:
+    - For each predefined number of realizations:
+        a. Generate samples of model parameters using Sobol sampling.
+        b. Modify samples to respect constraints (e.g., dependent parameters like `tauc2`).
+        c. Evaluate Ep, Epp, and complex modulus at each frequency for each sample set.
+        d. Perform Sobol sensitivity analysis for each frequency and compute Sobol indices for Ep, Epp, and complex modulus.
+        e. Extract first-order and total-order sensitivity indices and their confidence intervals.
+
+7. Save Sensitivity Analysis Results to Excel:
+    - Save the calculated first-order and total-order Sobol indices and confidence intervals for each frequency and realization count in separate Excel files.
+
+8. Visualize Sensitivity Analysis Results (for S1 - Ep, ST - Ep, S1 - Epp, ST - Epp):
+    - Load saved Sobol indices from Excel files.
+    - Set up plots for first-order (S1) and total-order (ST) indices across frequencies and parameter variations.
+    - Configure subplot layouts and labels, customizing axes and ticks for log-scaled frequency.
+
+9. Display Visualizations:
+    - Arrange and display the subplots with appropriate labels, legends, and formatting to represent the sensitivity of model parameters on Ep and Epp over the frequency range.
