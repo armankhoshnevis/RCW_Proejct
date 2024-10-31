@@ -1,0 +1,32 @@
+1. Define Model Parameters as Symbols:
+    - Define symbolic variables for characteristic moduli (Ec1, Ec2), time scales (tc1, tc2),
+      power-law exponents (a1, a2), and frequency (w).
+
+2. Compute Storage and Loss Moduli for Each Branch:
+    - Define symbolic expressions for the storage and loss moduli for the first and second branches (Ep1, Ep2, Epp1, Epp2).
+    - Calculate equivalent storage and loss moduli (Ep and Epp) as the sum of each branch's contributions.
+
+3. Convert Symbolic Expressions to MATLAB Functions:
+    - Generate MATLAB functions for Ep and Epp.
+    - Compute partial derivatives of Ep and Epp with respect to each model parameter.
+    - Convert these derivatives to MATLAB functions for sensitivity analysis.
+
+4. Load Experimental Data and Initialize Parameters:
+    - Load data from an external source file.
+    - Define model parameters (mean values and standard deviations) for the analysis.
+    - Compute lower and upper limits for each parameter based on a uniform distribution assumption.
+
+5. Monte Carlo Simulation (N_MC realizations):
+    - For each realization:
+        a. Generate a random sample for each model parameter within its defined limits.
+        b. Evaluate the storage and loss moduli (Ep_vctr and Epp_vctr) using the sampled parameters.
+        c. Compute normalized sensitivity coefficients for each parameter with respect to Ep, Epp, and combined modulus.
+        
+        - Log the iteration index for progress tracking.
+
+6. Compute Mean and Standard Deviation of Sensitivity Coefficients:
+    - For each sensitivity coefficient, calculate the mean and standard deviation across all realizations and frequencies.
+    - Store results in arrays for further analysis.
+
+7. Save Results:
+    - Save the computed mean and standard deviation values for the sensitivity coefficients across frequencies to a .mat file for later use.
