@@ -3,9 +3,18 @@ Function Cost_Function(problem, params)
     experimental data with model predictions in a logarithm scale.
 
     Inputs:
-        - problem: a structure providing experimental data, model data, and 
-        weights
+        - problem: a structure providing
+            - Experimental data
+            - Model data
+            - Weights
         - params: an array of model parameters
+            - Ec1: Characteristic modulus of the first branch
+            - tauc1: Characteristic relaxation time of the first branch
+            - alpha1: Power exponent of the first spring-pot element in the first branch (Both FMG and FMM models)
+            - beta1: Power exponent of the second spring-pot element in the first branch (Unique for FMM Model)
+            - Ec2: Characteristic modulus of the second branch
+            - tauc2: Characteristic relaxation time of the second branch
+            - alpha2: Power exponent of the first spring-pot element in the first branch (FMG model)
 
     Process:
         1. Update the model predictions in 'problem' by calling 
