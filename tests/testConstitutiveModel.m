@@ -10,9 +10,13 @@ classdef testConstitutiveModel < matlab.unittest.TestCase
             
             % Calculate the storage and loss modules
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
             addpath('../src/PSO/');
 >>>>>>> 6d8e6ac (Major update to tests and scr; Modify test for Constitutive_Function, Create a test PSO, Reorganize the scr directory)
+=======
+            addpath('../src');
+>>>>>>> e6ee7c6 (Add "addpath"s in testConstitutiveModel.m)
             problem = Constitutive_Model(problem, params);
             
             % NaN or Inf check for both modules
@@ -30,9 +34,13 @@ classdef testConstitutiveModel < matlab.unittest.TestCase
             params = [2000, 2.0, 0.0, 0.0, 300, 1.0, 1.0];
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
             addpath('../src/PSO/');
 >>>>>>> 6d8e6ac (Major update to tests and scr; Modify test for Constitutive_Function, Create a test PSO, Reorganize the scr directory)
+=======
+            addpath('../src');
+>>>>>>> e6ee7c6 (Add "addpath"s in testConstitutiveModel.m)
             problem = Constitutive_Model(problem, params);
             
             % NaN or Inf check for both modules
@@ -47,10 +55,15 @@ classdef testConstitutiveModel < matlab.unittest.TestCase
             problem.modelData = [logspace(-8, 2, 11); zeros(2, 11)];
             params = [2000, 2, 0.3, 0.0, 300, 0.08, 0.0];
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
             
             addpath('../src/PSO/');
 >>>>>>> 6d8e6ac (Major update to tests and scr; Modify test for Constitutive_Function, Create a test PSO, Reorganize the scr directory)
+=======
+            
+            addpath('../src');
+>>>>>>> e6ee7c6 (Add "addpath"s in testConstitutiveModel.m)
             problem = Constitutive_Model(problem, params);
             
             % Non-negative check for both modules
