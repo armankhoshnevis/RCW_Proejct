@@ -1,6 +1,14 @@
+This script performs a derivative-based local sensitivity analysis for the storage and loss moduli.
+
+Inputs:
+    - Optimized values for the model parameters (Ec1, tauc1, alpha1, beta1, Ec2, tauc2, and alpha2)
+
+Outputs:
+    - Mean and standard deviation of local sensitivity coefficients over decades of frequency.
+
+Steps:
 1. Define Model Parameters as Symbols:
-    - Define symbolic variables for characteristic moduli (Ec1, Ec2), time scales (tc1, tc2),
-      power-law exponents (a1, a2), and frequency (w).
+    - Define symbolic variables for characteristic moduli (Ec1, Ec2), time scales (tc1, tc2), power-law exponents (a1, a2), and frequency (w).
 
 2. Compute Storage and Loss Moduli for Each Branch:
     - Define symbolic expressions for the storage and loss moduli for the first and second branches (Ep1, Ep2, Epp1, Epp2).
@@ -12,15 +20,15 @@
     - Convert these derivatives to MATLAB functions for sensitivity analysis.
 
 4. Load Experimental Data and Initialize Parameters:
-    - Load data from an external source file.
-    - Define model parameters (mean values and standard deviations) for the analysis.
-    - Compute lower and upper limits for each parameter based on a uniform distribution assumption.
+    - Load the experimental data and optimized model parameters values.
+    - Set the mean values to the optimized model parameters and the standard deviation is a fixed percentage of the mean.
+    - Calculate parameter bounds for each variable assuming a uniform distribution.
 
 5. Monte Carlo Simulation (N_MC realizations):
     - For each realization:
         a. Generate a random sample for each model parameter within its defined limits.
         b. Evaluate the storage and loss moduli (Ep_vctr and Epp_vctr) using the sampled parameters.
-        c. Compute normalized sensitivity coefficients for each parameter with respect to Ep, Epp, and combined modulus.
+        c. Compute normalized sensitivity coefficients for each parameter with respect to Ep and Epp.
         
         - Log the iteration index for progress tracking.
 
