@@ -9,6 +9,7 @@ classdef testConstitutiveModel < matlab.unittest.TestCase
             params = [2000, 2, 0.3, 0.0, 300, 0.08, 0.0];
             
             % Calculate the storage and loss modules
+            addpath('../src');
             problem = Constitutive_Model(problem, params);
             
             % NaN or Inf check for both modules
@@ -25,6 +26,7 @@ classdef testConstitutiveModel < matlab.unittest.TestCase
             % Define edge-case parameter values
             params = [2000, 2.0, 0.0, 0.0, 300, 1.0, 1.0];
 
+            addpath('../src');
             problem = Constitutive_Model(problem, params);
             
             % NaN or Inf check for both modules
@@ -38,6 +40,8 @@ classdef testConstitutiveModel < matlab.unittest.TestCase
             % Sanity Checks on Output Range
             problem.modelData = [logspace(-8, 2, 11); zeros(2, 11)];
             params = [2000, 2, 0.3, 0.0, 300, 0.08, 0.0];
+            
+            addpath('../src');
             problem = Constitutive_Model(problem, params);
             
             % Non-negative check for both modules
