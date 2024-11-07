@@ -38,7 +38,8 @@ function out = PSO(problem, params, run_number)
     % Initialize Population
     for i=1:swarmSize
         % Generate Random Solution
-        particles(i).position = unifrnd(variableMin, variableMax, variableSize);
+        particles(i).position = problem.variableMin + ...
+            (problem.variableMax - problem.variableMin) .* rand(1, problem.numVariables);
         
         % Initialize Velocity
         particles(i).velocity = zeros(variableSize);
