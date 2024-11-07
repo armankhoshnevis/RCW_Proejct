@@ -4,7 +4,16 @@ Function Constitutive_Model(problem, params)
     
     Inputs:
         - problem: a structure containing frequency data
+            - problem.modelData(1,:): Experimental frequency data points
+            
         - params: an array of model parameters
+            - Ec1: Characteristic modulus of the first branch
+            - tauc1: Characteristic relaxation time of the first branch
+            - alpha1: Power exponent of the first spring-pot element in the first branch (Both FMG and FMM models)
+            - beta1: Power exponent of the second spring-pot element in the first branch (Unique for FMM Model)
+            - Ec2: Characteristic modulus of the second branch
+            - tauc2: Characteristic relaxation time of the second branch
+            - alpha2: Power exponent of the first spring-pot element in the first branch (FMG model)
 
     Process:
         1. Extract parameters for both branches from 'params'.
