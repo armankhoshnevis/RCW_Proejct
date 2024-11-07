@@ -2,9 +2,43 @@ Function PSO(problem, params, run_number)
     This function performs Particle Swarm Optimization (PSO) to find an optimal solution for a given problem.
     
     Inputs:
-        - problem: structure containing problem-specific data (variable bounds, weights, etc.)
-        - params: PSO parameters (iterations, swarm size, inertia, acceleration coefficients, etc.)
+        - problem: Structure containing problem-specific data
+            - numVariables: Number of model parameters to be optimized
+            - variableMin: Array specifying the lower bounds for each model parameter
+            - variableMax: Array specifying the upper bounds for each model parameter
+            - expData: Experimental data used for evaluating the cost of each particle
+            - weight: Weight applied to each component of the cost function
+        
+        - params: PSO parameters
+            - maxIterations: Integer specifying the maximum number of iterations for the PSO loop.
+            - swarmSize: Number of particles in the swarm
+            - inertiaVector: Array specifying the inertia weight values for each iteration
+            - personalAccCoeff: Coefficient for personal acceleration
+            - socialAccCoeff: Coefficient for social acceleration
+            - showIterationInfo: Boolean flag for toggling the display of iteration information
+        
         - run_number: identifier for the current PSO run
+    
+    Outputs:
+        - out: Structure contains the final results and details of the PSO run:
+            - population: Array of particle structures representing the final swarm state
+                - position: Array representing the final position (solution vector) of each particle
+                - velocity: Array representing the final velocity of each particle
+                - cost: Cost of the final position
+                - best.position: Position of the personal best solution for each particle
+                - best.cost: Cost of the personal best solution for each particle
+
+            - bestSolution: Structure representing the global best solution found by the swarm
+                - position: Position (solution vector) corresponding to the lowest cost observed in the swarm.
+                - cost: Cost of the best solution.
+            
+            - bestCosts: Array containing the global best cost at each iteration, allowing for tracking the optimization process
+            
+            - outputData: Matrix for logging information
+                - Iteration: Iteration number
+                - LSE: Logarithmic squared error between experimental data and model predictions
+                - MSE: Mean squared error between experimental data and model predictions
+                - Global Best Position: The position of the global best
 
     Process:
         1. Define the optimization problem:
