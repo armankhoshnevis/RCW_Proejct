@@ -1,0 +1,15 @@
+rule run_pso_optimization:
+    input:
+        metadata="src/PSO/PSOSetup/{metadata}.dat"
+    output:
+        optimization_result="src/PSO/OptimizationResults/FMG_FMG/{metadata}_result.mat"
+    params:
+        matlab_executable="/Applications/MATLAB_R2024b.app/bin/matlab"
+    script:
+        """
+        {params.matlab_executable} -nodisplay -nosplash -r "try, main_loop_hpcc_function('{input.metadata}'), catch, exit(1), end, exit(0)"
+        """
+
+rule all:
+    input:
+        expand("src/PSO/OptimizationResults/FMG_FMG/{metadata}_result.mat", metadata=["FMG_FMG_20HS_00GnP", "FMG_FMG_20HS_05GnP"])
