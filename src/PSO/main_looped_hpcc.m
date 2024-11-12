@@ -23,6 +23,7 @@ upper_bounds = sscanf(uppper_bounds_line, '%e');
 pso_setup = fscanf(fid, '%e', 3);
 
 % Read and Split the Experimental Data
+addpath('../../data/');
 tableData = readmatrix("Summary for New Master Curves 7-22-23.xlsx", ...
     'Sheet', sheetName, 'Range', validRange);
 frequencyData = tableData(:,1);
@@ -73,12 +74,19 @@ for i = 1:numRuns
     bestSolutions(i, problem.numVariables + 2) = LSE;
     runCount = runCount + 1;
 end
-%save('matlab.mat');
-Lwidth = 2.5;
-Msize = 10;
-Fsize = 18;
-set(gca,'LineWidth',Lwidth,'FontSize',Fsize)
-loglog(bestCosts,'LineWidth',Lwidth)
-set(gca,'YScale','log','XScale','log','LineWidth',Lwidth,'FontSize',Fsize)
-xlabel('$Iterations$','Interpreter','Latex')
-ylabel('$Best \:Cost$','Interpreter','Latex')
+
+% Save the optimization data
+fgetl(fid);
+matlabData = fgetl(fid);
+savePath = fullfile('OptimizationResults', 'FMG_FMG', matlabData);
+save(savePath);
+
+% Convergence plot
+% Lwidth = 2.5;
+% Msize = 10;
+% Fsize = 18;
+% set(gca, 'LineWidth', Lwidth, 'FontSize', Fsize);
+% loglog(bestCosts, 'LineWidth', Lwidth);
+% set(gca, 'YScale', 'log', 'XScale', 'log', 'LineWidth', Lwidth, 'FontSize', Fsize);
+% xlabel('$Iterations$', 'Interpreter', 'Latex');
+% ylabel('$Best \:Cost$', 'Interpreter', 'Latex');
