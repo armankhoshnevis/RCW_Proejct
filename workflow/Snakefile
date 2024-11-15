@@ -15,15 +15,3 @@ rule run_pso_optimization_fmg:
         """
         {params.matlab_executable} -nodisplay -nosplash -r "try, main_loop_hpcc_function('FMG_FMG_{wildcards.metadata}'), catch, exit(1), end, exit(0)"
         """
-
-rule run_pso_optimization_fmm:
-    input:
-        FMM="src/PSO/PSOSetup/FMM_FMG_{metadata}.dat"
-    output:
-        "src/PSO/OptimizationResults/FMM_FMG/{metadata}_result.mat"
-    params:
-        matlab_executable="/Applications/MATLAB_R2024b.app/bin/matlab"
-    script:
-        """
-        {params.matlab_executable} -nodisplay -nosplash -r "try, main_loop_hpcc_function('FMM_FMG_{wildcards.metadata}'), catch, exit(1), end, exit(0)"
-        """
