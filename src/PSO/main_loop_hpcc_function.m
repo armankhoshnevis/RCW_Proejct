@@ -8,7 +8,7 @@ close all;
 format long e;
 
 addpath('PSOSetup/');
-filename = metadata;
+filename = strcat(metadata, '.dat');
 
 fid = fopen(filename, 'r');
 
