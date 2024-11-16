@@ -1,17 +1,23 @@
-#TODO: fix this
 rule all:
     input:
-        expand("src/PSO/OptimizationResults/FMG_FMG/{metadata}_result.mat", metadata=["FMG_FMG_20HS_00GnP", "FMG_FMG_20HS_05GnP"])
+        directory("../src/PSO/OptimizationResults/FMG_FMG")
 
-#TODO: test this
 rule run_pso_optimization_fmg:
     input:
-        FMG="src/PSO/PSOSetup/FMG_FMG_{metadata}.dat"
+        "../src/PSO/PSOSetup/FMG_FMG_{metadata}.dat"
     output:
-        "src/PSO/OptimizationResults/FMG_FMG/{metadata}_result.mat",
+        "../src/PSO/OptimizationResults/FMG_FMG/Opt_FMG_{metadata}.mat",
     params:
-        matlab_executable="/Applications/MATLAB_R2024b.app/bin/matlab"
+        matlab_function = "main_loop_hpcc_function"
+        matlab_path="/Applications/MATLAB_R2024b.app/bin/matlab"
     script:
         """
-        {params.matlab_executable} -nodisplay -nosplash -r "try, main_loop_hpcc_function('FMG_FMG_{wildcards.metadata}'), catch, exit(1), end, exit(0)"
+        {params.matlab_path} -nodisplay -nosplash -r 
+        try, 
+            {params.matlab_function}('FMG_FMG_{wildcards.metadata}'), 
+        catch ME, 
+            disp(ME.message)
+            exit(1),
+        end;
+        exit;"
         """
