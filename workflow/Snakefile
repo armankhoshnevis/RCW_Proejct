@@ -8,7 +8,7 @@ rule run_pso_optimization_fmg:
     output:
         "../src/PSO/OptimizationResults/FMG_FMG/Opt_FMG_{metadata}.mat",
     params:
-        matlab_function = "main_loop_hpcc_function"
+        matlab_function = "main_loop_hpcc_function",
         matlab_path="/Applications/MATLAB_R2024b.app/bin/matlab"
     script:
         """
