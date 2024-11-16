@@ -1,6 +1,8 @@
+SAMPLES = ["20HS_00GnP", "20HS_05GnP"]
+
 rule all:
     input:
-        directory("../src/PSO/OptimizationResults/FMG_FMG")
+        expand("../src/PSO/OptimizationResults/FMG_FMG/Opt_FMG_{sample}.mat", sample=SAMPLES)
 
 rule run_pso_optimization_fmg:
     input:
