@@ -14,9 +14,7 @@ rule run_pso_optimization_fmg:
         matlab_path = "/Applications/MATLAB_R2024b.app/bin/matlab",
     log:
         "logs/run_pso_fmg_{metadata}.log"
-    script:
+    shell:
         """
-        "{params.matlab_path}" -nodisplay -nosplash -r \
-        "try, {params.matlab_function}('FMG_FMG_{wildcards.metadata}'), \
-        catch ME, disp(ME.message), exit(1), end; exit;" &> {log}
+        cd ../src/PSO && "{params.matlab_path}" -nodisplay -nosplash -r "try; {params.matlab_function}('FMG_FMG_{wildcards.metadata}'); catch ME; disp(ME.message); exit(1); end; exit;" >& ../../workflow/{log}
         """
