@@ -1,4 +1,9 @@
-SAMPLES = ["20HS_00GnP", "20HS_05GnP"]
+# SAMPLES = ["20HS_00GnP", "20HS_05GnP"]
+from glob import glob
+import os
+
+metadata_files = glob("../src/PSO/PSOSetup/FMG_FMG_*.dat")
+SAMPLES = [os.path.basename(f).replace("FMG_FMG_", "").replace(".dat", "") for f in metadata_files]
 
 rule all:
     input:
