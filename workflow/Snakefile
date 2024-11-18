@@ -16,10 +16,9 @@ rule run_pso_optimization_fmg:
         "../src/PSO/OptimizationResults/FMG_FMG/Opt_FMG_{metadata}.mat",
     params:
         matlab_function = "main_loop_hpcc_function",
-        matlab_path = "/Applications/MATLAB_R2024b.app/bin/matlab",
     log:
         "logs/run_pso_fmg_{metadata}.log"
     shell:
         """
-        cd ../src/PSO && "{params.matlab_path}" -nodisplay -nosplash -r "try; {params.matlab_function}('FMG_FMG_{wildcards.metadata}'); catch ME; disp(ME.message); exit(1); end; exit;" >& ../../workflow/{log}
+        cd ../src/PSO && matlab -nodisplay -nosplash -r "try; {params.matlab_function}('FMG_FMG_{wildcards.metadata}'); catch ME; disp(ME.message); exit(1); end; exit;" >& ../../workflow/{log}
         """
