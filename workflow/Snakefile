@@ -22,3 +22,4 @@ rule run_pso_optimization_fmg:
         """
         cd ../src/PSO && matlab -nodisplay -nosplash -r "try; {params.matlab_function}('FMG_FMG_{wildcards.metadata}'); catch ME; disp(ME.message); exit(1); end; exit;" >& ../../workflow/{log}
         """
+
