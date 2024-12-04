@@ -18,12 +18,13 @@ rule run_pso_optimization_fmg:
         matlab_function = "main_loop_hpcc_function",
     log:
         "logs/run_pso_fmg_{metadata}.log"
-# resources specific to this rule
-#     resources:
-#         mem_mb=16000,
-#         cpu_per_task = 4,
-#         time=10  # in minutes
+    resources:
+        time=config["default-resources"]["time"],
+        mem=config["default-resources"]["mem"],
+        cpu_per_task=config["default-resources"]["cpus_per_task"]
     shell:
         """
-        cd ../src/PSO && matlab -nodisplay -nosplash -r "try; {params.matlab_function}('FMG_FMG_{wildcards.metadata}'); catch ME; disp(ME.message); exit(1); end; exit;" >& ../../workflow/{log}
+        module load MATLAB/2023b && \
+        cd ../src/PSO && \
+        matlab -nodisplay -nosplash -r "try; {params.matlab_function}('FMG_FMG_{wildcards.metadata}'); catch ME; disp(ME.message); exit(1); end; exit;" >& ../../workflow/{log}
         """
