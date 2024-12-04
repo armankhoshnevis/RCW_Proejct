@@ -8,7 +8,7 @@ jobs: 20
 default-resources:
     account: "general"  # or netid
     partition: "normal"
-    time: "10:00:00"  # HH:MM:SS
+    time: "01:00:00"  # HH:MM:SS
     nodes: 1
     ntask: 1
     cpus_per_task: 8
