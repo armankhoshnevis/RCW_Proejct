@@ -1,17 +1,17 @@
-# Max number of jobs to run simultaneously
-jobs: 20
-
 # Executor type for running jobs on the cluster
 executor: slurm
+
+# Max number of jobs to run simultaneously
+jobs: 20
 
 # Default cluster setup for each job
 default-resources:
     account: "general"  # or netid
     partition: "normal"
-    time: "00:10:00"  # HH:MM:SS
+    time: "10:00:00"  # HH:MM:SS
     nodes: 1
     ntask: 1
     cpus_per_task: 8
     mem: "16G"
-    output: "slurm_logs/%x_%j.out" # Logs with job name (%x) and job ID (%j)
-    error: "slurm_logs/%x_%j.err"
+    # output: "slurm_logs/%x_%j.out" # Logs with job name (%x) and job ID (%j)
+    # error: "slurm_logs/%x_%j.err"
