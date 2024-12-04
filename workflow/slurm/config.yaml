@@ -4,14 +4,10 @@ jobs: 20
 # Executor type for running jobs on the cluster
 executor: slurm
 
-# MATLAB module
-envmodules:
-    matlab: "MATLAB/2023b"
-
 # Default cluster setup for each job
 default-resources:
     account: "general"  # or netid
-    prtition: "normal"
+    partition: "normal"
     time: "00:10:00"  # HH:MM:SS
     nodes: 1
     ntask: 1

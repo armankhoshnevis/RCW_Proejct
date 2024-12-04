@@ -5,6 +5,8 @@ import os
 metadata_files = glob("../src/PSO/PSOSetup/FMG_FMG_*.dat")
 SAMPLES = [os.path.basename(f).replace("FMG_FMG_", "").replace(".dat", "") for f in metadata_files]
 
+configfile: "slurm/config.yaml"
+
 rule all:
     input:
         expand("../src/PSO/OptimizationResults/FMG_FMG/Opt_FMG_{sample}.mat", sample=SAMPLES)
