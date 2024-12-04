@@ -1,4 +1,3 @@
-# SAMPLES = ["20HS_00GnP", "20HS_05GnP"]
 from glob import glob
 import os
 
@@ -20,10 +19,10 @@ rule run_pso_optimization_fmg:
         matlab_function = "main_loop_hpcc_function",
     log:
         "logs/run_pso_fmg_{metadata}.log"
-    resources:
-        time=config["default-resources"]["time"],
-        mem=config["default-resources"]["mem"],
-        cpu_per_task=config["default-resources"]["cpus_per_task"]
+    # resources:
+    #     runtime=config["default-resources"]["runtime"],
+    #     mem_mb=config["default-resources"]["mem_mb"],
+    #     cpu_per_task=config["default-resources"]["cpus_per_task"]
     shell:
         """
         bash run_matlab.sh ../src/PSO "{params.matlab_function}('FMG_FMG_{wildcards.metadata}')" "../../workflow/{log}"
