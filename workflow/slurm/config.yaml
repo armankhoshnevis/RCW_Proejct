@@ -6,8 +6,8 @@ jobs: 20
 
 # Default cluster setup for each job
 default-resources:
-    account: "general"  # or netid
-    partition: "normal"
+    slurm_account: "general"  # or buyin account
+    slurm_partition: compute
     runtime: 60  # in minutes
     nodes: 1
     ntask: 1
