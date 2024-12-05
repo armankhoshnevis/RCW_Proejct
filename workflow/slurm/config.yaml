@@ -1,0 +1,15 @@
+# Executor type for running jobs on the cluster
+executor: slurm
+
+# Max number of jobs to run simultaneously
+jobs: 20
+
+# Default cluster setup for each job
+default-resources:
+    slurm_account: "general"  # or buyin account
+    slurm_partition: compute
+    runtime: 60  # in minutes
+    nodes: 1
+    ntask: 1
+    cpus_per_task: 8
+    mem_mb: 8000  # in megabyte

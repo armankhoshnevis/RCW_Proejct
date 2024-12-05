@@ -1,9 +1,10 @@
-# SAMPLES = ["20HS_00GnP", "20HS_05GnP"]
 from glob import glob
 import os
 
 metadata_files = glob("../src/PSO/PSOSetup/FMG_FMG_*.dat")
 SAMPLES = [os.path.basename(f).replace("FMG_FMG_", "").replace(".dat", "") for f in metadata_files]
+
+configfile: "slurm/config.yaml"
 
 rule all:
     input:
@@ -20,5 +21,5 @@ rule run_pso_optimization_fmg:
         "logs/run_pso_fmg_{metadata}.log"
     shell:
         """
-        cd ../src/PSO && matlab -nodisplay -nosplash -r "try; {params.matlab_function}('FMG_FMG_{wildcards.metadata}'); catch ME; disp(ME.message); exit(1); end; exit;" >& ../../workflow/{log}
+        bash run_matlab.sh ../src/PSO "{params.matlab_function}('FMG_FMG_{wildcards.metadata}')" "../../workflow/{log}"
         """
