@@ -1,14 +1,16 @@
 from glob import glob
 import os
 
-metadata_files = glob("../src/PSO/PSOSetup/FMG_FMG_*.dat")
-SAMPLES = [os.path.basename(f).replace("FMG_FMG_", "").replace(".dat", "") for f in metadata_files]
+metadata_files_fmg = glob("../src/PSO/PSOSetup/FMG_FMG_*.dat")
+FMG_SAMPLES = [os.path.basename(f).replace("FMG_FMG_", "").replace(".dat", "") for f in metadata_files_fmg]
 
-configfile: "slurm/config.yaml"
+metadata_files_fmm = glob("../src/PSO/PSOSetup/FMM_FMG_*.dat")
+FMM_SAMPLES = [os.path.basename(f).replace("FMM_FMG_", "").replace(".dat", "") for f in metadata_files_fmm]
 
 rule all:
     input:
-        expand("../src/PSO/OptimizationResults/FMG_FMG/Opt_FMG_{sample}.mat", sample=SAMPLES)
+        expand("../src/PSO/OptimizationResults/FMG_FMG/Opt_FMG_{sample}.mat", sample=FMG_SAMPLES),
+        expand("../src/PSO/OptimizationResults/FMM_FMG/Opt_FMM_{sample}.mat", sample=FMM_SAMPLES)
 
 rule run_pso_optimization_fmg:
     input:
@@ -22,4 +24,18 @@ rule run_pso_optimization_fmg:
     shell:
         """
         bash run_matlab.sh ../src/PSO "{params.matlab_function}('FMG_FMG_{wildcards.metadata}')" "../../workflow/{log}"
+        """
+
+rule run_pso_optimization_fmm:
+    input:
+        "../src/PSO/PSOSetup/FMM_FMG_{metadata}.dat"
+    output:
+        "../src/PSO/OptimizationResults/FMM_FMG/Opt_FMM_{metadata}.mat"
+    params:
+        matlab_function = "main_loop_hpcc_function"
+    log:
+        "logs/run_pso_fmm_{metadata}.log"
+    shell:
+        """
+        bash run_matlab.sh ../src/PSO "{params.matlab_function}('FMM_FMG_{wildcards.metadata}')" "../../workflow/{log}"
         """
