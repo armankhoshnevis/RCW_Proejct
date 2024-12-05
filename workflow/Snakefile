@@ -1,17 +1,22 @@
 from glob import glob
 import os
 
+# Collect all FMG_FMG .dat files and extract metadata for FMG samples
 metadata_files_fmg = glob("../src/PSO/PSOSetup/FMG_FMG_*.dat")
 FMG_SAMPLES = [os.path.basename(f).replace("FMG_FMG_", "").replace(".dat", "") for f in metadata_files_fmg]
 
+# Collect all FMM_FMG .dat files and extract metadata for FMM samples
 metadata_files_fmm = glob("../src/PSO/PSOSetup/FMM_FMG_*.dat")
 FMM_SAMPLES = [os.path.basename(f).replace("FMM_FMG_", "").replace(".dat", "") for f in metadata_files_fmm]
 
+# The 'all' rule defines the final expected outputs for the workflow.
+# It includes the optimization results for both FMG and FMM datasets.
 rule all:
     input:
         expand("../src/PSO/OptimizationResults/FMG_FMG/Opt_FMG_{sample}.mat", sample=FMG_SAMPLES),
         expand("../src/PSO/OptimizationResults/FMM_FMG/Opt_FMM_{sample}.mat", sample=FMM_SAMPLES)
 
+# Rule to process FMG datasets and generate optimization results
 rule run_pso_optimization_fmg:
     input:
         "../src/PSO/PSOSetup/FMG_FMG_{metadata}.dat"
@@ -23,9 +28,11 @@ rule run_pso_optimization_fmg:
         "logs/run_pso_fmg_{metadata}.log"
     shell:
         """
+        # Run the MATLAB script using the wrapper shell script
         bash run_matlab.sh ../src/PSO "{params.matlab_function}('FMG_FMG_{wildcards.metadata}')" "../../workflow/{log}"
         """
 
+# Rule to process FMM datasets and generate optimization results
 rule run_pso_optimization_fmm:
     input:
         "../src/PSO/PSOSetup/FMM_FMG_{metadata}.dat"
@@ -37,5 +44,6 @@ rule run_pso_optimization_fmm:
         "logs/run_pso_fmm_{metadata}.log"
     shell:
         """
+        # Run the MATLAB script using the wrapper shell script
         bash run_matlab.sh ../src/PSO "{params.matlab_function}('FMM_FMG_{wildcards.metadata}')" "../../workflow/{log}"
         """
