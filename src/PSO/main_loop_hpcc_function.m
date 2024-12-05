@@ -80,7 +80,12 @@ end
 % Save the optimization data
 fgetl(fid);
 matlabData = fgetl(fid);
-savePath = fullfile('OptimizationResults', 'FMG_FMG', matlabData);
+
+savePath = fullfile('OptimizationResults', modelName, matlabData);
+saveDir = fileparts(savePath);
+if ~exist(saveDir, 'dir')
+    mkdir(saveDir); % Create the directory
+end
 save(savePath);
 
 % Convergence plot
