@@ -15,6 +15,7 @@ nav:
     - PSO.m: explanation/PSO.md
     - Constitutive_Model.m: explanation/Constitutive_Model.md
     - Cost_Function.m: explanation/Cost_Function.md
+    - metadata.dat: explanation/metadata.md
   - Reference: reference/index.md
 repo_url: https://github.com/armankhoshnevis/RCW_Proejct
 
