@@ -8,7 +8,7 @@ nav:
   - How-to Guides:
     - Overview: how-to-guides/index.md
     - Run on a Local Machine: how-to-guides/local_machine.md
-    - Run on a HPCC (working with Slurm Job Scheduler): how-to-guides/hpcc.md
+    - Run on a Cluster: how-to-guides/cluster.md
   - Explanation:
     - Overview: explanation/index.md
     - main_loop_hpcc_function.m: explanation/main_loop_hpcc_function.md

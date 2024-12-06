@@ -1,4 +1,4 @@
-# Running the Snakefile on a HPCC with Slurm Job Scheduler
+# Running the Snakefile on a Cluster (with Slurm Job Scheduler)
 
 ## Prerequisites
 - [Install Snakemake](https://snakemake.readthedocs.io/en/stable/getting_started/installation.html) in a Python environment.

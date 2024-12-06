@@ -5,4 +5,4 @@ This guide explains how to execute the Snakefile for your project both on a loca
 ---
 
 - [`Local Machine`](local_machine.md): How to run the workflow in you local machine?
-- [`HPCC`](hpcc.md): How to run the workflow on a HPCC with Slurm job scheduler?
+- [`Cluster`](cluster.md): How to run the workflow on a HPCC with Slurm job scheduler?
