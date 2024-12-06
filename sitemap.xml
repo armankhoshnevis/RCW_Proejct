@@ -2,6 +2,46 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://armankhoshnevis.github.io/RCW_Proejct/</loc>
-         <lastmod>2024-12-05</lastmod>
+         <lastmod>2024-12-06</lastmod>
+    </url>
+    <url>
+         <loc>https://armankhoshnevis.github.io/RCW_Proejct/explanation/</loc>
+         <lastmod>2024-12-06</lastmod>
+    </url>
+    <url>
+         <loc>https://armankhoshnevis.github.io/RCW_Proejct/explanation/Constitutive_Model/</loc>
+         <lastmod>2024-12-06</lastmod>
+    </url>
+    <url>
+         <loc>https://armankhoshnevis.github.io/RCW_Proejct/explanation/Cost_Function/</loc>
+         <lastmod>2024-12-06</lastmod>
+    </url>
+    <url>
+         <loc>https://armankhoshnevis.github.io/RCW_Proejct/explanation/PSO/</loc>
+         <lastmod>2024-12-06</lastmod>
+    </url>
+    <url>
+         <loc>https://armankhoshnevis.github.io/RCW_Proejct/explanation/main_loop_hpcc_function/</loc>
+         <lastmod>2024-12-06</lastmod>
+    </url>
+    <url>
+         <loc>https://armankhoshnevis.github.io/RCW_Proejct/explanation/metadata/</loc>
+         <lastmod>2024-12-06</lastmod>
+    </url>
+    <url>
+         <loc>https://armankhoshnevis.github.io/RCW_Proejct/how-to-guides/</loc>
+         <lastmod>2024-12-06</lastmod>
+    </url>
+    <url>
+         <loc>https://armankhoshnevis.github.io/RCW_Proejct/how-to-guides/cluster/</loc>
+         <lastmod>2024-12-06</lastmod>
+    </url>
+    <url>
+         <loc>https://armankhoshnevis.github.io/RCW_Proejct/how-to-guides/local_machine/</loc>
+         <lastmod>2024-12-06</lastmod>
+    </url>
+    <url>
+         <loc>https://armankhoshnevis.github.io/RCW_Proejct/reference/</loc>
+         <lastmod>2024-12-06</lastmod>
     </url>
 </urlset>

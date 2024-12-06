@@ -8,23 +8,25 @@
       
       
       
-        <link rel="canonical" href="https://armankhoshnevis.github.io/RCW_Proejct/">
+        <link rel="canonical" href="https://armankhoshnevis.github.io/RCW_Proejct/explanation/Constitutive_Model/">
       
       
+        <link rel="prev" href="../PSO/">
       
-        <link rel="next" href="how-to-guides/">
+      
+        <link rel="next" href="../Cost_Function/">
       
       
-      <link rel="icon" href="assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.35">
     
     
       
-        <title>RCW Project</title>
+        <title>Constitutive_Model.m - RCW Project</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.35f28582.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.35f28582.min.css">
       
       
 
@@ -43,7 +45,7 @@
       
     
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -62,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#welcome-to-the-documentation" class="md-skip">
+        <a href="#constitutive_modelm" class="md-skip">
           Skip to content
         </a>
       
@@ -78,7 +80,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="RCW Project" class="md-header__button md-logo" aria-label="RCW Project" data-md-component="logo">
+    <a href="../.." title="RCW Project" class="md-header__button md-logo" aria-label="RCW Project" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -98,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              Constitutive_Model.m
             
           </span>
         </div>
@@ -185,7 +187,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="RCW Project" class="md-nav__button md-logo" aria-label="RCW Project" data-md-component="logo">
+    <a href="../.." title="RCW Project" class="md-nav__button md-logo" aria-label="RCW Project" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -212,30 +214,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Home
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -244,77 +226,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#about-the-project" class="md-nav__link">
-    <span class="md-ellipsis">
-      About the Project
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#sections-overview" class="md-nav__link">
-    <span class="md-ellipsis">
-      Sections Overview
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Sections Overview">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#how-to-guides" class="md-nav__link">
-    <span class="md-ellipsis">
-      How-To Guides
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#explanation" class="md-nav__link">
-    <span class="md-ellipsis">
-      Explanation
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#reference" class="md-nav__link">
-    <span class="md-ellipsis">
-      Reference
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -361,7 +272,7 @@
   
   
     <li class="md-nav__item">
-      <a href="how-to-guides/" class="md-nav__link">
+      <a href="../../how-to-guides/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -382,7 +293,7 @@
   
   
     <li class="md-nav__item">
-      <a href="how-to-guides/local_machine/" class="md-nav__link">
+      <a href="../../how-to-guides/local_machine/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -403,7 +314,7 @@
   
   
     <li class="md-nav__item">
-      <a href="how-to-guides/cluster/" class="md-nav__link">
+      <a href="../../how-to-guides/cluster/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -428,17 +339,19 @@
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
@@ -452,7 +365,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Explanation
@@ -466,7 +379,7 @@
   
   
     <li class="md-nav__item">
-      <a href="explanation/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -487,7 +400,7 @@
   
   
     <li class="md-nav__item">
-      <a href="explanation/main_loop_hpcc_function/" class="md-nav__link">
+      <a href="../main_loop_hpcc_function/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -508,7 +421,7 @@
   
   
     <li class="md-nav__item">
-      <a href="explanation/PSO/" class="md-nav__link">
+      <a href="../PSO/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -526,10 +439,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="explanation/Constitutive_Model/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Constitutive_Model.m
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -538,6 +471,110 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#purpose" class="md-nav__link">
+    <span class="md-ellipsis">
+      Purpose
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Components
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Components">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-inputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Inputs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-mathematical-definitions" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Mathematical Definitions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Mathematical Definitions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#storage-modulus-e" class="md-nav__link">
+    <span class="md-ellipsis">
+      Storage Modulus (\(E'\)):
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loss-modulus-e" class="md-nav__link">
+    <span class="md-ellipsis">
+      Loss Modulus (\(E''\)):
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-calculations" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Calculations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-outputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Outputs
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -550,7 +587,7 @@
   
   
     <li class="md-nav__item">
-      <a href="explanation/Cost_Function/" class="md-nav__link">
+      <a href="../Cost_Function/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -571,7 +608,7 @@
   
   
     <li class="md-nav__item">
-      <a href="explanation/metadata/" class="md-nav__link">
+      <a href="../metadata/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -599,7 +636,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/" class="md-nav__link">
+      <a href="../../reference/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -639,46 +676,79 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#about-the-project" class="md-nav__link">
+  <a href="#purpose" class="md-nav__link">
     <span class="md-ellipsis">
-      About the Project
+      Purpose
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#sections-overview" class="md-nav__link">
+  <a href="#key-components" class="md-nav__link">
     <span class="md-ellipsis">
-      Sections Overview
+      Key Components
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Sections Overview">
+    <nav class="md-nav" aria-label="Key Components">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#how-to-guides" class="md-nav__link">
+  <a href="#1-inputs" class="md-nav__link">
     <span class="md-ellipsis">
-      How-To Guides
+      1. Inputs
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#explanation" class="md-nav__link">
+  <a href="#2-mathematical-definitions" class="md-nav__link">
     <span class="md-ellipsis">
-      Explanation
+      2. Mathematical Definitions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Mathematical Definitions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#storage-modulus-e" class="md-nav__link">
+    <span class="md-ellipsis">
+      Storage Modulus (\(E'\)):
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#reference" class="md-nav__link">
+  <a href="#loss-modulus-e" class="md-nav__link">
     <span class="md-ellipsis">
-      Reference
+      Loss Modulus (\(E''\)):
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-calculations" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Calculations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-outputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Outputs
     </span>
   </a>
   
@@ -707,26 +777,39 @@
   
 
 
-<h1 id="welcome-to-the-documentation">Welcome to the Documentation</h1>
-<h2 id="about-the-project">About the Project</h2>
-<p>This study leverages fractional-order viscoelastic constitutive modeling for polyurea nanocomposites. Particle Swarm Optimization (PSO) is utilized for obtaining model parameters. This documentation provides a comprehensive guide to understanding, running, and extending the workflow for both local and HPC environments.</p>
+<h1 id="constitutive_modelm">Constitutive_Model.m</h1>
+<h2 id="purpose">Purpose</h2>
+<p>This function computes the <strong>storage modulus</strong> <span class="arithmatex">\(E'\)</span> and <strong>loss modulus</strong> <span class="arithmatex">\(E''\)</span> for constitutive models (FMG-FMG or FMM-FMG). It can also support similar models (i.e., FMM-FMM, FMG-FMM) with branches representing fractional-order viscoelastic behaviors.</p>
 <hr />
-<h2 id="sections-overview">Sections Overview</h2>
-<h3 id="how-to-guides"><strong>How-To Guides</strong></h3>
-<p>Detailed guides for solving specific problems and using the workflow effectively.
-- Running the Snakefile locally or on a cluster.
-- Customizing metadata for specific cases.</p>
-<p><a href="how-to-guides/">Go to How-To Guides</a></p>
+<h2 id="key-components">Key Components</h2>
+<h3 id="1-inputs"><strong>1. Inputs</strong></h3>
+<ul>
+<li><strong><code>problem</code></strong>: Struct containing <code>modelData</code>, including shifted frequency data.</li>
+<li><strong><code>params</code></strong>: Parameters for the constitutive model:</li>
+<li><span class="arithmatex">\(E_{c1}\)</span>, <span class="arithmatex">\(E_{c2}\)</span>: Characteristic Module for each branch.</li>
+<li><span class="arithmatex">\(\tau_{c1}, \tau_{c2}\)</span>: Characteristic relaxation time for each branch.</li>
+<li><span class="arithmatex">\(\alpha_1, \beta_1, \alpha_2, \beta_2\)</span>: Fractional-order power exponents controlling viscoelastic behavior.</li>
+</ul>
 <hr />
-<h3 id="explanation"><strong>Explanation</strong></h3>
-<p>In-depth explanations of the project's components, including:
-- MATLAB scripts and their logic.
-- Metadata structure and its role in the workflow.</p>
-<p><a href="explanation/">Go to Explanation</a></p>
+<h3 id="2-mathematical-definitions"><strong>2. Mathematical Definitions</strong></h3>
+<h4 id="storage-modulus-e">Storage Modulus (<span class="arithmatex">\(E'\)</span>):</h4>
+<p><span class="arithmatex">\(E^{\prime}_{model}(x) = \sum_{k=1}^2 E_{c_k} \frac{\left(x\tau_{c_k}\right)^{\alpha_k} \cos\left(\frac{\pi\alpha_k}{2}\right) + \left(x\tau_{c_k}\right)^{2\alpha_k-\beta_k} \cos\left(\frac{\pi\beta_k}{2}\right)}{1 + \left(x\tau_{c_k}\right)^{\alpha_k-\beta_k} \cos\left(\frac{\pi\left(\alpha_k-\beta_k\right)}{2}\right) + \left(x\tau_{c_k}\right)^{2\left(\alpha_k-\beta_k\right)}} \)</span></p>
+<h4 id="loss-modulus-e">Loss Modulus (<span class="arithmatex">\(E''\)</span>):</h4>
+<p><span class="arithmatex">\(E^{\prime\prime}_{model}(x) = \sum_{k=1}^2 E_{c_k} \frac{\left(x\tau_{c_k}\right)^{\alpha_k} \sin\left(\frac{\pi\alpha_k}{2}\right) + \left(x\tau_{c_k}\right)^{2\alpha_k-\beta_k} \sin\left(\frac{\pi\beta_k}{2}\right)}{1 + \left(x\tau_{c_k}\right)^{\alpha_k-\beta_k} \cos\left(\frac{\pi\left(\alpha_k-\beta_k\right)}{2}\right) + \left(x\tau_{c_k}\right)^{2\left(\alpha_k-\beta_k\right)}} \)</span></p>
 <hr />
-<h3 id="reference"><strong>Reference</strong></h3>
-<p>Reference to our publication based on the results of these codes.</p>
-<p><a href="reference/">Go to Reference</a></p>
+<h3 id="3-calculations"><strong>3. Calculations</strong></h3>
+<ul>
+<li>Calculates the equivalent storage and loss moduli of the constitutive model:</li>
+<li>Updates <code>problem.modelData(2, :)</code> with <span class="arithmatex">\(E'\)</span>.</li>
+<li>Updates <code>problem.modelData(3, :)</code> with <span class="arithmatex">\(E''\)</span>.</li>
+</ul>
+<hr />
+<h3 id="4-outputs"><strong>4. Outputs</strong></h3>
+<ul>
+<li><strong><code>problem</code></strong>: Struct with updated <code>modelData</code>:</li>
+<li><strong><code>modelData(2, :)</code></strong>: Storage modulus values.</li>
+<li><strong><code>modelData(3, :)</code></strong>: Loss modulus values.</li>
+</ul>
 
 
 
@@ -773,10 +856,10 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": ".", "features": [], "search": "assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="assets/javascripts/bundle.56dfad97.min.js"></script>
+      <script src="../../assets/javascripts/bundle.56dfad97.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script>
       
