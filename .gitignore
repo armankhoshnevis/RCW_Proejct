@@ -2,3 +2,7 @@
 *.vscode
 *.snakemake
 *.log
+*.html
+*.json
+*.xml
+*.xml.gz
