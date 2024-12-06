@@ -4,7 +4,6 @@ theme:
   name: material
 nav:
   - Home: index.md
-  - Tutorials: tutorials/index.md
   - How-to Guides:
     - Overview: how-to-guides/index.md
     - Run on a Local Machine: how-to-guides/local_machine.md
