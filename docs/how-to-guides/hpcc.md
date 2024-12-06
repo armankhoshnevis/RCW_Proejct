@@ -14,8 +14,9 @@ For instance, refer to this [guide](https://docs.icer.msu.edu/Using_conda/) for 
 - Activate the Python environment where Snakemake is installed.
 - Go to the workflow directory inside the cloned repository (`cd RCW_Proejct/workflow`).
 - To check what tasks will be executed (without actually running them), use the following command: `snakemake --dryrun --cores <n> --workflow-profile slurm`
-- To submit the workflow to the SLURM job scheduler, use the following command: `snakemake --cores <n> --workflow-profile slurm`
-- To allow Snakemake to run multiple jobs in parallel, use the --jobs option: `snakemake --profile slurm --jobs <n>`. Replace `<n>` with the maximum number of jobs you want to submit.
+- To submit the workflow to the SLURM job scheduler, use the following command: `snakemake --cores <n> --workflow-profile slurm`.
+    - Note: Here, `--cores <n>` allows Snakemake to manage up to `<n>` simultaneous processes locally (e.g., generating outputs, managing job submissions).
+    - Note: The maximum number of SLURM jobs Snakemake will submit to the cluster simultaneously is specified in the `config.yaml` file (as referred a bit down below).
 
 ## Guides/Notes on the workflow logic
 - All MATLAB functions and scripts required for the workflow are located in the `/src/PSO` directory.
@@ -25,7 +26,7 @@ For instance, refer to this [guide](https://docs.icer.msu.edu/Using_conda/) for 
     - Each .dat file contains parameters such as the model name, variable bounds, experimental data details, and PSO settings.
     - Refer to the [Explanation](../explanation/index.md) section in the documentation for detailed information about metadata structure and usage.
 - The workflow uses `matlab_run.sh` to execute MATLAB scripts.
-    - This shell ensures that a MATLAB module is loaded properly: `module load MATLAB/2023b`. For example, refer to [this guide](https://docs.icer.msu.edu/Matlab/) for more information on loading and running MATLAB on different systems.
+    - This shell ensures that a MATLAB module is loaded properly: `module load MATLAB/2023b`. For example, refer to [this guide](https://docs.icer.msu.edu/Matlab/) for more information on loading and running MATLAB on a cluster.
 - Upon successful workflow execution, the optimization results (.mat files) will be saved in:
     - `/src/PSO/OptimizationResults/FMG_FMG` for FMG-FMG models.
     - `/src/PSO/OptimizationResults/FMM_FMG` for FMM-FMG models.
