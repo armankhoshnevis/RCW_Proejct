@@ -1,0 +1,29 @@
+site_name: RCW Project
+site_url: https://armankhoshnevis.github.io/RCW_Proejct/
+theme:
+  name: material
+nav:
+  - Home: index.md
+  - How-to Guides:
+    - Overview: how-to-guides/index.md
+    - Run on a Local Machine: how-to-guides/local_machine.md
+    - Run on a Cluster: how-to-guides/cluster.md
+  - Explanation:
+    - Overview: explanation/index.md
+    - main_loop_hpcc_function.m: explanation/main_loop_hpcc_function.md
+    - PSO.m: explanation/PSO.md
+    - Constitutive_Model.m: explanation/Constitutive_Model.md
+    - Cost_Function.m: explanation/Cost_Function.md
+    - metadata.dat: explanation/metadata.md
+  - Reference: reference/index.md
+repo_url: https://github.com/armankhoshnevis/RCW_Proejct
+
+markdown_extensions:
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.arithmatex
+  - pymdownx.superfences
+  - pymdownx.inlinehilite
+
+extra_javascript:
+  - https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js

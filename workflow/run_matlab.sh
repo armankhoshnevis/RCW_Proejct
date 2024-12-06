@@ -1,8 +1,11 @@
 #!/bin/bash
 # Wrapper script to run MATLAB with module loading
 
-# Load the MATLAB module
-module load MATLAB/2023b
+# Check if the 'module' command exists
+if command -v module &> /dev/null; then
+    # Load the MATLAB module for the cluster
+    module load MATLAB/2023b
+fi
 
 # Change to the specified directory
 cd "$1"
